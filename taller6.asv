@@ -1,0 +1,12 @@
+% Se crea el objeto sistema difuso de tipo mamdani
+clear,
+close all,
+clc,
+fis = mamfis("Name","ImplementacionLogicaDifusa");
+% Se le agregan las entradas
+fis = addInput(fis, [0 100], "Name", "LuzExterior");
+fis = addInput(fis, [0 100], "Name", "Temperatura");
+
+% Funciones de pertenencia de la entrada LuzExterior
+fis = addMF(fis, "LuzExterior", "trapmf", [-30.24 -9.76 9.76 30.24], "Name", "Baja");
+fis = addMF(fis, "LuzExterior", "trimf", [10 50 90], "Name", "LuzAmbiente");
